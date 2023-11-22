@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Bank = void 0;
+exports.CurrentAccount = exports.SavingsAccount = exports.Account = void 0;
 class Account {
     constructor(details) {
         this.details = details;
@@ -36,6 +36,7 @@ class Account {
         this.balance += amount;
     }
 }
+exports.Account = Account;
 class SavingsAccount extends Account {
     constructor(details) {
         super(details);
@@ -50,6 +51,7 @@ class SavingsAccount extends Account {
         console.log(`Present balance - ${this.balance}`);
     }
 }
+exports.SavingsAccount = SavingsAccount;
 class CurrentAccount extends Account {
     constructor(details) {
         super(details);
@@ -64,52 +66,4 @@ class CurrentAccount extends Account {
         console.log(`Present balance - ${this.balance}`);
     }
 }
-class Bank {
-    constructor() {
-        this.accounts = [];
-    }
-    createAccount(details) {
-        if (details.age > 68) {
-            console.log("You are not eligible for account opening.");
-            return;
-        }
-        let account;
-        if (details.accountType === "savings") {
-            account = new SavingsAccount(details);
-        }
-        else if (details.accountType === "current") {
-            account = new CurrentAccount(details);
-        }
-        else {
-            console.log("Invalid account type.");
-            return;
-        }
-        this.accounts.push(account);
-    }
-    showBalance(accountNumber) {
-        const account = this.accounts.find((acc) => acc.getAccountNumber() === accountNumber);
-        if (account) {
-            console.log(`Balance for ${accountNumber}'s ${account.getAccountType()} account: ${account.getBalance()}`);
-        }
-        else {
-            console.log("Account not found.");
-        }
-    }
-    displayAccountDetails(accountNumber) {
-        const account = this.accounts.find((acc) => acc.getAccountNumber() === accountNumber);
-        if (account) {
-            console.log(`Customer Name: ${account.getCustomerName()}`);
-            console.log(`Email ID: ${account.getEmail()}`);
-            console.log(`Type of Account: ${account.getAccountType()}`);
-            console.log(`Total Balance: ${account.getBalance()}`);
-        }
-        else {
-            console.log("Account not found.");
-        }
-    }
-    accountObject(accountNumber) {
-        const account = this.accounts.find((acc) => acc.getAccountNumber() === accountNumber);
-        return account;
-    }
-}
-exports.Bank = Bank;
+exports.CurrentAccount = CurrentAccount;

@@ -1,6 +1,6 @@
 import * as readline from 'readline';
 import { IAccountDetails } from './IAccountDetails';
-import { Bank } from './account';
+import { Bank } from './Bank';
 import { promptForAccountNumber, promptForString, promptForNumber, promptForNonNegativeNumber, promptForEmail, promptForAccountType } from './input';
 
 const rl = readline.createInterface({

@@ -33,13 +33,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const readline = __importStar(require("readline"));
-const account_1 = require("./account");
+const Bank_1 = require("./Bank");
 const input_1 = require("./input");
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-const bank = new account_1.Bank();
+const bank = new Bank_1.Bank();
 function showOptions() {
     console.log('***********************************************');
     console.log("1. Create New Account");
